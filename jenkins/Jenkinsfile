@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_USER = "augustinejebakumar"
+        BACKEND_IMAGE = "augustinejebakumar/backend:latest"
+        FRONTEND_IMAGE = "augustinejebakumar/frontend:latest"
+    }
+
+    stages {
+
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/augustine-jeba/MERN-Stack-Project.git'
+            }
+        }
+
+        stage('Build Docker Images') {
+            steps {
+                sh '''
+                docker build -t $BACKEND_IMAGE -f DevOps/docker/Dockerfile-Backend backend
+                docker build -t $FRONTEND_IMAGE -f DevOps/docker/Dockerfile-Frontend student-teacher-app
+                '''
+            }
+        }
+
+        stage('Push Images') {
+            steps {
+                sh '''
+                docker push $BACKEND_IMAGE
+                docker push $FRONTEND_IMAGE
+                '''
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh '''
+                kubectl apply -f DevOps/Kubernetes-Manifests/
+                '''
+            }
+        }
+    }
+}

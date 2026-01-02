@@ -3,6 +3,8 @@
 [![GitHub](https://img.shields.io/github/stars/AmanPathak-DevOps.svg?style=social)](https://github.com/augustine-jeba)
 
 ![Architecture](assets/Infra.gif)
+![Snippet](assets/snippet.png)
+
 
 
 This repository demonstrates the deployment of a three-tier application using Docker, focusing on individual Dockerfiles for each component. The application comprises a MySQL database, a Node.js backend, and a React.js frontend.

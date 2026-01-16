@@ -3,6 +3,8 @@
 [![GitHub](https://img.shields.io/github/stars/AmanPathak-DevOps.svg?style=social)](https://github.com/augustine-jeba)
 
 ![Architecture](assets/Infra.gif)
+
+![Architecture](assets/docker.gif)
 ![Snippet](assets/snippet.png)
 
 
